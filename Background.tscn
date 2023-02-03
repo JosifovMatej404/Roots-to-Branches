@@ -1,11 +1,89 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Legacy-Fantasy - High Forest 2.3/Background/Background.png" type="Texture" id=1]
+[ext_resource path="res://Legacy-Fantasy - High Forest 2.3/Trees Cut/Tree1.png" type="Texture" id=2]
+[ext_resource path="res://Legacy-Fantasy - High Forest 2.3/Trees Cut/Tree4.png" type="Texture" id=3]
+[ext_resource path="res://Legacy-Fantasy - High Forest 2.3/Trees Cut/Tree2.png" type="Texture" id=4]
+[ext_resource path="res://Legacy-Fantasy - High Forest 2.3/Trees Cut/Tree5.png" type="Texture" id=5]
+[ext_resource path="res://Legacy-Fantasy - High Forest 2.3/Trees Cut/Tree3.png" type="Texture" id=6]
+[ext_resource path="res://Legacy-Fantasy - High Forest 2.3/Trees Cut/TreeBack3.png" type="Texture" id=7]
+[ext_resource path="res://Legacy-Fantasy - High Forest 2.3/Trees Cut/TreeBack1.png" type="Texture" id=8]
 
 [node name="Background" type="ParallaxBackground"]
+__meta__ = {
+"_edit_horizontal_guides_": [ 0.371082 ],
+"_edit_vertical_guides_": [ 1.14984, 480.545 ]
+}
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2( 479, 0 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxLayer"]
 texture = ExtResource( 1 )
 centered = false
+
+[node name="Trees" type="ParallaxLayer" parent="."]
+position = Vector2( 264.285, 118.928 )
+motion_mirroring = Vector2( 479, 0 )
+
+[node name="Sprite" type="Sprite" parent="Trees"]
+position = Vector2( -7.93698, -9.52441 )
+texture = ExtResource( 8 )
+
+[node name="Sprite2" type="Sprite" parent="Trees"]
+position = Vector2( -338.995, 19.2596 )
+texture = ExtResource( 7 )
+offset = Vector2( 152.787, 31.5015 )
+
+[node name="Sprite3" type="Sprite" parent="Trees"]
+position = Vector2( -354.293, 57.0891 )
+texture = ExtResource( 7 )
+offset = Vector2( 44, -11.0955 )
+
+[node name="Sprite4" type="Sprite" parent="Trees"]
+position = Vector2( -109.296, 50.8528 )
+texture = ExtResource( 7 )
+offset = Vector2( 44, -11.0955 )
+
+[node name="Sprite5" type="Sprite" parent="Trees"]
+position = Vector2( 59.9748, 54.4164 )
+texture = ExtResource( 7 )
+offset = Vector2( 44, -11.0955 )
+
+[node name="Sprite6" type="Sprite" parent="Trees"]
+position = Vector2( 175.792, 73.1253 )
+texture = ExtResource( 7 )
+offset = Vector2( 44, -11.0955 )
+
+[node name="Sprite7" type="Sprite" parent="Trees"]
+position = Vector2( -447.742, 54.3247 )
+texture = ExtResource( 7 )
+offset = Vector2( 321.224, 0 )
+
+[node name="Sprite8" type="Sprite" parent="Trees"]
+position = Vector2( -278.09, 64.1045 )
+texture = ExtResource( 7 )
+offset = Vector2( 321.224, 0 )
+
+[node name="Trees2" type="ParallaxLayer" parent="."]
+position = Vector2( 78.6611, 89.1493 )
+motion_mirroring = Vector2( 479, 0 )
+
+[node name="Sprite" type="Sprite" parent="Trees2"]
+texture = ExtResource( 2 )
+
+[node name="Sprite2" type="Sprite" parent="Trees2"]
+position = Vector2( 201.404, 38.0038 )
+texture = ExtResource( 4 )
+
+[node name="Sprite3" type="Sprite" parent="Trees2"]
+position = Vector2( 364.043, 77.9329 )
+texture = ExtResource( 6 )
+
+[node name="Sprite4" type="Sprite" parent="Trees2"]
+position = Vector2( 93.0684, 111.252 )
+texture = ExtResource( 3 )
+
+[node name="Sprite5" type="Sprite" parent="Trees2"]
+position = Vector2( 279.734, 133.297 )
+texture = ExtResource( 5 )
