@@ -21,6 +21,7 @@ __meta__ = {
 motion_mirroring = Vector2( 902, 0 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxLayer"]
+visible = false
 position = Vector2( 0, -92.6058 )
 scale = Vector2( 1.881, 1.41731 )
 texture = ExtResource( 1 )
@@ -31,80 +32,80 @@ position = Vector2( 264.285, 118.928 )
 motion_mirroring = Vector2( 902, 0 )
 
 [node name="Sprite" type="Sprite" parent="Trees"]
-position = Vector2( -7.93698, -9.52441 )
+position = Vector2( -157.439, 189.367 )
 texture = ExtResource( 8 )
 
 [node name="Sprite2" type="Sprite" parent="Trees"]
-position = Vector2( -338.995, 19.2596 )
+position = Vector2( -488.497, 218.151 )
 texture = ExtResource( 7 )
 offset = Vector2( 152.787, 31.5015 )
 
 [node name="Sprite3" type="Sprite" parent="Trees"]
-position = Vector2( 100.377, 67.6957 )
+position = Vector2( -49.125, 266.587 )
 texture = ExtResource( 7 )
 offset = Vector2( 44, -11.0955 )
 
 [node name="Sprite4" type="Sprite" parent="Trees"]
-position = Vector2( -109.296, 50.8528 )
+position = Vector2( -258.798, 249.744 )
 texture = ExtResource( 7 )
 offset = Vector2( 44, -11.0955 )
 
 [node name="Sprite5" type="Sprite" parent="Trees"]
-position = Vector2( 59.9748, 54.4164 )
+position = Vector2( -89.5272, 253.308 )
 texture = ExtResource( 7 )
 offset = Vector2( 44, -11.0955 )
 
 [node name="Sprite6" type="Sprite" parent="Trees"]
-position = Vector2( -249.582, 82.7584 )
+position = Vector2( -399.084, 281.65 )
 texture = ExtResource( 7 )
 offset = Vector2( 44, -11.0955 )
 
 [node name="Sprite7" type="Sprite" parent="Trees"]
-position = Vector2( -447.742, 54.3247 )
+position = Vector2( -597.244, 253.216 )
 texture = ExtResource( 7 )
 offset = Vector2( 321.224, 0 )
 
 [node name="Sprite8" type="Sprite" parent="Trees"]
-position = Vector2( -278.09, 64.1045 )
+position = Vector2( -427.592, 262.996 )
 texture = ExtResource( 7 )
 offset = Vector2( 321.224, 0 )
 
 [node name="Sprite9" type="Sprite" parent="Trees"]
-position = Vector2( 441.914, -9.52441 )
+position = Vector2( 292.412, 189.367 )
 texture = ExtResource( 8 )
 
 [node name="Sprite10" type="Sprite" parent="Trees"]
-position = Vector2( 110.856, 19.2596 )
+position = Vector2( -38.646, 218.151 )
 texture = ExtResource( 7 )
 offset = Vector2( 152.787, 31.5015 )
 
 [node name="Sprite11" type="Sprite" parent="Trees"]
-position = Vector2( 550.227, 67.6957 )
+position = Vector2( 400.725, 266.587 )
 texture = ExtResource( 7 )
 offset = Vector2( 44, -11.0955 )
 
 [node name="Sprite12" type="Sprite" parent="Trees"]
-position = Vector2( 340.555, 50.8528 )
+position = Vector2( 191.053, 249.744 )
 texture = ExtResource( 7 )
 offset = Vector2( 44, -11.0955 )
 
 [node name="Sprite13" type="Sprite" parent="Trees"]
-position = Vector2( 509.826, 54.4164 )
+position = Vector2( 360.324, 253.308 )
 texture = ExtResource( 7 )
 offset = Vector2( 44, -11.0955 )
 
 [node name="Sprite14" type="Sprite" parent="Trees"]
-position = Vector2( 188.377, 61.3528 )
+position = Vector2( 38.875, 260.244 )
 texture = ExtResource( 7 )
 offset = Vector2( 44, -11.0955 )
 
 [node name="Sprite15" type="Sprite" parent="Trees"]
-position = Vector2( 2.1088, 54.3247 )
+position = Vector2( -147.393, 253.216 )
 texture = ExtResource( 7 )
 offset = Vector2( 321.224, 0 )
 
 [node name="Sprite16" type="Sprite" parent="Trees"]
-position = Vector2( 171.761, 64.1045 )
+position = Vector2( 22.259, 262.996 )
 texture = ExtResource( 7 )
 offset = Vector2( 321.224, 0 )
 
@@ -113,46 +114,47 @@ position = Vector2( 78.6611, 89.1493 )
 motion_mirroring = Vector2( 902, 0 )
 
 [node name="Sprite" type="Sprite" parent="Trees2"]
-position = Vector2( 15.7145, 2.2449 )
+position = Vector2( -133.788, 201.136 )
 texture = ExtResource( 2 )
 
 [node name="Sprite2" type="Sprite" parent="Trees2"]
-position = Vector2( 272.758, 39.252 )
+position = Vector2( 123.256, 238.143 )
 texture = ExtResource( 4 )
 
 [node name="Sprite3" type="Sprite" parent="Trees2"]
-position = Vector2( 364.043, 77.9329 )
+position = Vector2( 214.541, 276.824 )
 texture = ExtResource( 6 )
 
 [node name="Sprite4" type="Sprite" parent="Trees2"]
-position = Vector2( 93.0684, 111.252 )
+position = Vector2( -56.4336, 310.143 )
 texture = ExtResource( 3 )
 
 [node name="Sprite5" type="Sprite" parent="Trees2"]
-position = Vector2( 173.354, 128.053 )
+position = Vector2( 23.852, 326.944 )
 texture = ExtResource( 5 )
 
 [node name="Sprite6" type="Sprite" parent="Trees2"]
-position = Vector2( 427.501, 20.7543 )
+position = Vector2( 277.999, 219.645 )
 texture = ExtResource( 2 )
 
 [node name="Sprite7" type="Sprite" parent="Trees2"]
-position = Vector2( 684.544, 57.7614 )
+position = Vector2( 535.042, 256.653 )
 texture = ExtResource( 4 )
 
 [node name="Sprite8" type="Sprite" parent="Trees2"]
-position = Vector2( 775.829, 96.4423 )
+position = Vector2( 626.327, 295.333 )
 texture = ExtResource( 6 )
 
 [node name="Sprite9" type="Sprite" parent="Trees2"]
-position = Vector2( 504.854, 129.761 )
+position = Vector2( 355.352, 328.652 )
 texture = ExtResource( 3 )
 
 [node name="Sprite10" type="Sprite" parent="Trees2"]
-position = Vector2( 585.14, 146.562 )
+position = Vector2( 435.638, 345.453 )
 texture = ExtResource( 5 )
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
+visible = false
 
 [node name="Sprite" type="Sprite" parent="ParallaxLayer2"]
 position = Vector2( 41.0955, 61.6665 )
