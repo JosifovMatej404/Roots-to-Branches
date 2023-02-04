@@ -1,10 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Legacy-Fantasy - High Forest 2.3/Assets/Tiles.png" type="Texture" id=2]
-[ext_resource path="res://dalle/transparent/root.png" type="Texture" id=3]
 
-[sub_resource type="ConvexPolygonShape2D" id=3]
+[sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 48, 0, 48, 48, 0, 48 )
 
 [sub_resource type="TileSet" id=2]
@@ -92,14 +90,14 @@ points = PoolVector2Array( 0, 0, 48, 0, 48, 48, 0, 48 )
 7/navigation_offset = Vector2( 0, 0 )
 7/shape_offset = Vector2( 0, 0 )
 7/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-7/shape = SubResource( 3 )
+7/shape = SubResource( 1 )
 7/shape_one_way = false
 7/shape_one_way_margin = 1.0
 7/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 3 ),
+"shape": SubResource( 1 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 7/z_index = 0
@@ -110,10 +108,3 @@ cell_size = Vector2( 16, 16 )
 cell_custom_transform = Transform2D( 16, 0, 0, 16, 0, 0 )
 format = 1
 tile_data = PoolIntArray( 1900573, 21, 0, 1900574, 21, 0, 1900575, 21, 0, 1900576, 21, 0, 1900577, 21, 0, 1900578, 21, 0, 1900579, 21, 0, 1900580, 21, 0, 1900581, 21, 0, 1900582, 21, 0, 1900583, 21, 0, 1900584, 21, 0, 1900585, 21, 0, 1900586, 21, 0, 1966109, 7, 0, 1966112, 7, 0, 1966115, 7, 0, 1966117, 7, 0, 1966118, 14, 0, 1966121, 14, 0, 1966124, 14, 0 )
-
-[node name="KinematicBody2D" parent="." instance=ExtResource( 1 )]
-position = Vector2( 473, 449 )
-
-[node name="Root" type="Sprite" parent="."]
-position = Vector2( 239, 468 )
-texture = ExtResource( 3 )

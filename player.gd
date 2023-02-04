@@ -3,10 +3,13 @@ extends KinematicBody2D
 var direction = Vector2.ZERO
 var velocity = Vector2.ZERO
 var speed = Vector2(100,100)
+var jump_power = 300
 var state_machine
-var grav = 2
+var grav = 500
 var on_floor = false
 var attacking
+
+
 func _ready():
 	state_machine = $AnimationTree.get("parameters/playback")
 
@@ -26,13 +29,22 @@ func _calculate_move_velocity(
 	if attacking:
 		new_velocity = Vector2.ZERO
 		
-	if is_on_floor() == true:
+	if is_on_floor():
 		on_floor = true
-	else:
-		on_floor = false
+		new_velocity.y = 0
+
+	if can_jump():
+		new_velocity.y = -jump_power
 
 	return new_velocity
 	
+func can_jump():
+	if Input.is_action_pressed("jump") && on_floor && !attacking:
+		state_machine.travel("jump_start")
+		on_floor = false
+		return true
+	return false
+
 func _physics_process(delta):
 		direction = _get_direction()
 		velocity = _calculate_move_velocity(velocity, direction, speed)
@@ -40,20 +52,35 @@ func _physics_process(delta):
 		move_and_slide(velocity, Vector2.UP)
 
 func _manage_animations():
-	if Input.is_action_pressed("attack"):
+	
+	if direction.x > 0:
+		$AnimatedSprite.flip_h = false
+	elif direction.x < 0:
+		$AnimatedSprite.flip_h = true
+	
+	if can_attack():
 		_attack()
 		return
-	if direction.x != 0:
+		
+	if can_run():
 		state_machine.travel("run")
-		if direction.x > 0:
-			$AnimatedSprite.flip_h = false
-		elif direction.x < 0:
-			$AnimatedSprite.flip_h = true
 		return
-	state_machine.travel("idle")
+		
+	if is_idle():
+		state_machine.travel("idle")
 	
+	
+func can_run():
+	return _get_direction().x != 0 && on_floor
+
+func is_idle():
+	return on_floor && !attacking && direction == Vector2(0,1)
+
 func _attack():
 	state_machine.travel("attack")
+
+func can_attack():
+	return Input.is_action_pressed("attack") && on_floor
 	
 func set_attacking_to_true():
 	attacking = true
@@ -64,3 +91,8 @@ func set_attacking_to_false():
 	attacking = false
 	
 
+
+
+func _on_Area2D_body_entered(body):
+	if body.name == "gameLevels":
+		on_floor = true
