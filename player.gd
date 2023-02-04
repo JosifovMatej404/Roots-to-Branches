@@ -6,7 +6,7 @@ var speed = Vector2(100,100)
 var state_machine
 var grav = 2
 var on_floor = false
-
+var attacking
 func _ready():
 	state_machine = $AnimationTree.get("parameters/playback")
 
@@ -22,7 +22,10 @@ func _calculate_move_velocity(
 	var new_velocity = linear_velocity
 	new_velocity.x = speedy.x * directions.x
 	new_velocity.y += grav * get_physics_process_delta_time()
-
+	
+	if attacking:
+		new_velocity = Vector2.ZERO
+		
 	if is_on_floor() == true:
 		on_floor = true
 	else:
@@ -37,6 +40,9 @@ func _physics_process(delta):
 		move_and_slide(velocity, Vector2.UP)
 
 func _manage_animations():
+	if Input.is_action_pressed("attack"):
+		_attack()
+		return
 	if direction.x != 0:
 		state_machine.travel("run")
 		if direction.x > 0:
@@ -45,3 +51,16 @@ func _manage_animations():
 			$AnimatedSprite.flip_h = true
 		return
 	state_machine.travel("idle")
+	
+func _attack():
+	state_machine.travel("attack")
+	
+func set_attacking_to_true():
+	attacking = true
+
+func set_attacking_to_false():
+	if Input.is_action_pressed("attack"):
+		return
+	attacking = false
+	
+
