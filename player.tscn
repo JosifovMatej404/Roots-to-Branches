@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://animation.tres" type="SpriteFrames" id=1]
 [ext_resource path="res://player.gd" type="Script" id=2]
@@ -34,8 +34,10 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id=7]
-resource_name = "attack"
-length = 0.4
+resource_name = "idle"
+length = 0.8
+loop = true
+step = 0.2
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimatedSprite:frame")
 tracks/0/interp = 1
@@ -43,10 +45,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 0, 1, 2, 3 ]
+"values": [ 0, 2, 3, 0, 3 ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("AnimatedSprite:animation")
@@ -58,7 +60,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ "attack" ]
+"values": [ "idle" ]
 }
 
 [sub_resource type="Animation" id=8]
@@ -104,18 +106,6 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 0, 2, 3, 0 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("AnimatedSprite:animation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ "idle" ]
 }
 
 [sub_resource type="Animation" id=10]
@@ -165,8 +155,6 @@ animation = "run"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=20]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=21]
-
 [sub_resource type="AnimationNodeStateMachine" id=16]
 states/attack/node = SubResource( 12 )
 states/attack/position = Vector2( 521, 162 )
@@ -176,7 +164,7 @@ states/idle/node = SubResource( 14 )
 states/idle/position = Vector2( 264, 162 )
 states/run/node = SubResource( 15 )
 states/run/position = Vector2( 350, 55 )
-transitions = [ "idle", "run", SubResource( 18 ), "idle", "attack", SubResource( 19 ), "attack", "attack2", SubResource( 20 ), "run", "idle", SubResource( 21 ) ]
+transitions = [ "idle", "run", SubResource( 18 ), "idle", "attack", SubResource( 19 ), "attack", "attack2", SubResource( 20 ) ]
 start_node = "idle"
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=17]
@@ -186,8 +174,7 @@ script = ExtResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = ExtResource( 1 )
-animation = "attack2"
-frame = 3
+animation = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 11 )
