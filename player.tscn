@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://animation.tres" type="SpriteFrames" id=1]
 [ext_resource path="res://player.gd" type="Script" id=2]
@@ -68,11 +68,14 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 0.32 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 0.08, 0.32 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "values": [ {
 "args": [  ],
 "method": "set_attacking_to_true"
+}, {
+"args": [  ],
+"method": "_attack"
 }, {
 "args": [  ],
 "method": "set_attacking_to_false"
@@ -113,11 +116,14 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 0.4 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "values": [ {
 "args": [  ],
 "method": "set_attacking_to_true"
+}, {
+"args": [  ],
+"method": "_attack"
 }, {
 "args": [  ],
 "method": "set_attacking_to_false"
@@ -328,11 +334,11 @@ auto_advance = true
 switch_mode = 2
 auto_advance = true
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=34]
+[sub_resource type="AnimationNodeStateMachineTransition" id=31]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=35]
+[sub_resource type="AnimationNodeStateMachineTransition" id=32]
 
-[sub_resource type="AnimationNodeStateMachine" id=31]
+[sub_resource type="AnimationNodeStateMachine" id=33]
 states/attack/node = SubResource( 10 )
 states/attack/position = Vector2( 521, 162 )
 states/attack2/node = SubResource( 11 )
@@ -347,23 +353,26 @@ states/jump_start/node = SubResource( 15 )
 states/jump_start/position = Vector2( 155, 332 )
 states/run/node = SubResource( 16 )
 states/run/position = Vector2( 350, 55 )
-transitions = [ "idle", "run", SubResource( 17 ), "idle", "attack", SubResource( 18 ), "attack", "attack2", SubResource( 19 ), "run", "idle", SubResource( 20 ), "attack2", "attack", SubResource( 21 ), "run", "attack", SubResource( 22 ), "attack", "idle", SubResource( 23 ), "attack", "run", SubResource( 24 ), "attack2", "run", SubResource( 25 ), "attack2", "idle", SubResource( 26 ), "jump_start", "jump_mid", SubResource( 27 ), "idle", "jump_start", SubResource( 28 ), "jump_mid", "jump_end", SubResource( 29 ), "jump_end", "idle", SubResource( 30 ), "run", "jump_start", SubResource( 34 ), "jump_mid", "idle", SubResource( 35 ) ]
+transitions = [ "idle", "run", SubResource( 17 ), "idle", "attack", SubResource( 18 ), "attack", "attack2", SubResource( 19 ), "run", "idle", SubResource( 20 ), "attack2", "attack", SubResource( 21 ), "run", "attack", SubResource( 22 ), "attack", "idle", SubResource( 23 ), "attack", "run", SubResource( 24 ), "attack2", "run", SubResource( 25 ), "attack2", "idle", SubResource( 26 ), "jump_start", "jump_mid", SubResource( 27 ), "idle", "jump_start", SubResource( 28 ), "jump_mid", "jump_end", SubResource( 29 ), "jump_end", "idle", SubResource( 30 ), "run", "jump_start", SubResource( 31 ), "jump_mid", "idle", SubResource( 32 ) ]
 start_node = "idle"
-graph_offset = Vector2( -165.798, 144.112 )
+graph_offset = Vector2( -121.798, 0.112 )
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=32]
+[sub_resource type="AnimationNodeStateMachinePlayback" id=34]
 
-[sub_resource type="RectangleShape2D" id=33]
+[sub_resource type="RectangleShape2D" id=35]
 extents = Vector2( 3.56017, 17.4464 )
 
-[node name="KinematicBody2D" type="KinematicBody2D"]
+[sub_resource type="CapsuleShape2D" id=36]
+radius = 32.3221
+
+[node name="player" type="KinematicBody2D"]
+collision_layer = 2
 script = ExtResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 1, 0 )
 frames = ExtResource( 1 )
-animation = "jump_all"
-frame = 4
+animation = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
@@ -379,20 +388,27 @@ anims/jump_start = SubResource( 8 )
 anims/run = SubResource( 9 )
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource( 31 )
+tree_root = SubResource( 33 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
-parameters/playback = SubResource( 32 )
+parameters/playback = SubResource( 34 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
 zoom = Vector2( 0.458, 0.438 )
-offset_h = 1.0
+limit_bottom = 557
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2( -1.52588e-05, 27.9464 )
-shape = SubResource( 33 )
+shape = SubResource( 35 )
+
+[node name="Range" type="Area2D" parent="."]
+position = Vector2( 11.2975, -7.87849 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Range"]
+position = Vector2( 5.98462, -4.09474 )
+shape = SubResource( 36 )
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

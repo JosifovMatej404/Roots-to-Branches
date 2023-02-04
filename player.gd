@@ -55,29 +55,33 @@ func _manage_animations():
 	
 	if direction.x > 0:
 		$AnimatedSprite.flip_h = false
+		$Range.position.x = 11.297
 	elif direction.x < 0:
 		$AnimatedSprite.flip_h = true
-	
+		$Range.position.x = -11.297
+
 	if can_attack():
-		_attack()
+		state_machine.travel("attack")
 		return
-		
+
 	if can_run():
 		state_machine.travel("run")
 		return
-		
+
 	if is_idle():
 		state_machine.travel("idle")
-	
-	
+
+
 func can_run():
 	return _get_direction().x != 0 && on_floor
 
 func is_idle():
-	return on_floor && !attacking && direction == Vector2(0,1)
+	return on_floor && !attacking
 
 func _attack():
-	state_machine.travel("attack")
+	for body in $Range.get_overlapping_bodies():
+		if body.name == "Node2D":
+			body.OnTakeDamage()
 
 func can_attack():
 	return Input.is_action_pressed("attack") && on_floor
@@ -87,7 +91,7 @@ func set_attacking_to_true():
 
 func set_attacking_to_false():
 	if Input.is_action_pressed("attack"):
-		return
+		return 
 	attacking = false
 	
 
