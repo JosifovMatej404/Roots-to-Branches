@@ -39,5 +39,9 @@ func _physics_process(delta):
 func _manage_animations():
 	if direction.x != 0:
 		state_machine.travel("run")
+		if direction.x > 0:
+			$AnimatedSprite.flip_h = false
+		elif direction.x < 0:
+			$AnimatedSprite.flip_h = true
 		return
 	state_machine.travel("idle")
