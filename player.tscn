@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://animation.tres" type="SpriteFrames" id=1]
 [ext_resource path="res://player.gd" type="Script" id=2]
@@ -164,8 +164,27 @@ animation = "run"
 [sub_resource type="AnimationNodeStateMachineTransition" id=19]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=20]
+switch_mode = 2
+auto_advance = true
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=21]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=22]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=23]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=24]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=25]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=26]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=27]
+switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachine" id=16]
 states/attack/node = SubResource( 12 )
@@ -176,7 +195,7 @@ states/idle/node = SubResource( 14 )
 states/idle/position = Vector2( 264, 162 )
 states/run/node = SubResource( 15 )
 states/run/position = Vector2( 350, 55 )
-transitions = [ "idle", "run", SubResource( 18 ), "idle", "attack", SubResource( 19 ), "attack", "attack2", SubResource( 20 ), "run", "idle", SubResource( 21 ) ]
+transitions = [ "idle", "run", SubResource( 18 ), "idle", "attack", SubResource( 19 ), "attack", "attack2", SubResource( 20 ), "run", "idle", SubResource( 21 ), "attack2", "attack", SubResource( 22 ), "run", "attack", SubResource( 23 ), "attack", "idle", SubResource( 24 ), "attack", "run", SubResource( 25 ), "attack2", "run", SubResource( 26 ), "attack2", "idle", SubResource( 27 ) ]
 start_node = "idle"
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=17]

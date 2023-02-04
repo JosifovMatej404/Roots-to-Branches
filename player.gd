@@ -37,6 +37,9 @@ func _physics_process(delta):
 		move_and_slide(velocity, Vector2.UP)
 
 func _manage_animations():
+	if Input.is_action_pressed("attack"):
+		_attack()
+		return
 	if direction.x != 0:
 		state_machine.travel("run")
 		if direction.x > 0:
@@ -45,3 +48,8 @@ func _manage_animations():
 			$AnimatedSprite.flip_h = true
 		return
 	state_machine.travel("idle")
+	
+func _attack():
+	#if on_floor:
+	state_machine.travel("attack")
+	velocity = Vector2.ZERO
