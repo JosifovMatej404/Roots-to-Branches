@@ -28,7 +28,7 @@ texture = ExtResource( 1 )
 centered = false
 
 [node name="Trees5" type="ParallaxLayer" parent="."]
-position = Vector2( 321.496, 186.734 )
+position = Vector2( 359.637, 185.674 )
 motion_scale = Vector2( 0.8, 1 )
 motion_mirroring = Vector2( 902, 0 )
 
@@ -111,7 +111,7 @@ texture = ExtResource( 7 )
 offset = Vector2( 321.224, 0 )
 
 [node name="Trees4" type="ParallaxLayer" parent="."]
-position = Vector2( 359.637, 185.674 )
+position = Vector2( 356.458, 116.809 )
 motion_scale = Vector2( 0.8, 1 )
 motion_mirroring = Vector2( 902, 0 )
 
@@ -194,7 +194,7 @@ texture = ExtResource( 7 )
 offset = Vector2( 321.224, 0 )
 
 [node name="Trees3" type="ParallaxLayer" parent="."]
-position = Vector2( 356.458, 116.809 )
+position = Vector2( 264.285, 118.928 )
 motion_scale = Vector2( 0.85, 1 )
 motion_mirroring = Vector2( 902, 0 )
 
