@@ -207,5 +207,5 @@ parameters/playback = SubResource( 17 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
-zoom = Vector2( 0.697, 0.557 )
+zoom = Vector2( 0.458, 0.438 )
 offset_h = 1.0

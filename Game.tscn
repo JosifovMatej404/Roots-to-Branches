@@ -8,4 +8,4 @@
 [node name="Background" parent="." instance=ExtResource( 1 )]
 
 [node name="KinematicBody2D" parent="." instance=ExtResource( 2 )]
-position = Vector2( 123.024, 258.746 )
+position = Vector2( 133.024, 134.746 )
