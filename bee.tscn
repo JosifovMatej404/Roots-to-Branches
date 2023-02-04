@@ -92,8 +92,8 @@ position = Vector2( 1, -1.00001 )
 scale = Vector2( 1.15171, 10.3406 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( -0.868286, 0.0967045 )
-scale = Vector2( 5.18202, 0.501511 )
+position = Vector2( -0.868286, 7.62939e-06 )
+scale = Vector2( 0.881595, 0.098141 )
 frames = SubResource( 5 )
 animation = "fly"
 
