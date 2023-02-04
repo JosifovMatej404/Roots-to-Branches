@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://animation.tres" type="SpriteFrames" id=1]
 [ext_resource path="res://player.gd" type="Script" id=2]
@@ -152,6 +152,91 @@ tracks/1/keys = {
 "values": [ "idle" ]
 }
 
+[sub_resource type="Animation" id=29]
+resource_name = "jump_end"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "jump_all" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimatedSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 5, 6, 7, 8 ]
+}
+
+[sub_resource type="Animation" id=30]
+resource_name = "jump_mid"
+length = 0.1
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "jump_all" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimatedSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 4 ]
+}
+
+[sub_resource type="Animation" id=28]
+resource_name = "jump_start"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "jump_all" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimatedSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
+
 [sub_resource type="Animation" id=10]
 resource_name = "run"
 length = 0.7
@@ -238,9 +323,9 @@ start_node = "idle"
 script = ExtResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( 7.34161, -8.67645 )
+position = Vector2( 1, 0 )
 frames = ExtResource( 1 )
-animation = "attack"
+animation = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 11 )
@@ -250,12 +335,14 @@ anims/RESET = SubResource( 6 )
 anims/attack = SubResource( 7 )
 anims/attack2 = SubResource( 8 )
 anims/idle = SubResource( 9 )
+anims/jump_end = SubResource( 29 )
+anims/jump_mid = SubResource( 30 )
+anims/jump_start = SubResource( 28 )
 anims/run = SubResource( 10 )
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource( 16 )
 anim_player = NodePath("../AnimationPlayer")
-active = true
 parameters/playback = SubResource( 17 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
