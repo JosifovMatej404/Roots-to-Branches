@@ -41,7 +41,7 @@ func _manage_animations():
 	if Input.is_action_pressed("attack"):
 		_attack()
 		return
-	if direction.x != 0:
+	if direction.x != 0 && !attacking:
 		state_machine.travel("run")
 		if direction.x > 0:
 			$AnimatedSprite.flip_h = false
@@ -56,6 +56,6 @@ func _attack():
 		velocity = Vector2.ZERO
 	
 func _is_attacking() -> bool:
-	print(attacking)
-	return !attacking
+	attacking = !attacking
+	return attacking
 	
