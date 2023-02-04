@@ -238,6 +238,7 @@ start_node = "idle"
 script = ExtResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 7.34161, -8.67645 )
 frames = ExtResource( 1 )
 animation = "attack2"
 frame = 3
