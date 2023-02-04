@@ -42,10 +42,6 @@ func _manage_animations():
 		return
 	if direction.x != 0:
 		state_machine.travel("run")
-		if direction.x > 0:
-			$AnimatedSprite.flip_h = false
-		elif direction.x < 0:
-			$AnimatedSprite.flip_h = true
 		return
 	state_machine.travel("idle")
 	
