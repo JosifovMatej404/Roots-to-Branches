@@ -6,6 +6,7 @@ var speed = Vector2(100,100)
 var state_machine
 var grav = 2
 var on_floor = false
+var attacking = false
 
 func _ready():
 	state_machine = $AnimationTree.get("parameters/playback")
@@ -46,6 +47,11 @@ func _manage_animations():
 	state_machine.travel("idle")
 	
 func _attack():
-	#if on_floor:
 	state_machine.travel("attack")
-	velocity = Vector2.ZERO
+	if attacking:
+		velocity = Vector2.ZERO
+	
+func _is_attacking() -> bool:
+	print(attacking)
+	return !attacking
+	
