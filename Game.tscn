@@ -10,7 +10,7 @@
 [node name="Game" type="Node2D"]
 __meta__ = {
 "_edit_horizontal_guides_": [ 557.278 ],
-"_edit_vertical_guides_": [ -602.029 ]
+"_edit_vertical_guides_": [ -602.029, -81.7527 ]
 }
 
 [node name="bark" type="Sprite" parent="."]

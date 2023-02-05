@@ -117,7 +117,7 @@ func take_damage():
 		$Hitbox.set_deferred("monitorable",false)
 		$Hitbox.set_deferred("monitoring",false)
 		is_dead = true
-
+		
 
 func _on_Area2D_body_entered(body):
 	if body.name == "gameLevels":
