@@ -11,6 +11,9 @@ var setDir = false
 var health = 100
 
 const hit_particles_scn = preload("res://hit_particles.tscn")
+const explosion_scn = preload("res://explosion.tscn")
+
+var isRaging = false
 
 func _ready():
 	#health = ceil(Globals.Score / 100)
@@ -31,10 +34,14 @@ func OnTakeDamage():
 	effect.get_node(".").set_emitting(true)
 	effect.global_position.x = global_position.x
 	effect.global_position.y = global_position.y
-	# = (Vector2(global_position.x, global_position.y))
 	get_tree().get_root().add_child(effect)
-	global_position.x
+
 	if health <= 0:
+		var explosion = explosion_scn.instance()
+		explosion.global_position.x = global_position.x
+		explosion.global_position.y = global_position.y
+		get_tree().get_root().add_child(explosion)
+		explosion.play("explode")
 		#Globals.Score += 15
 		queue_free()
 	
@@ -48,8 +55,9 @@ func _calculate_move_velocity(
 	
 	for body in $Vision.get_overlapping_bodies():
 		if body.name == "KinematicBody2D":
-			new_velocity.x = 2.5* speedy.x * directions.x
-	
+			isRaging = true
+	if isRaging:
+		new_velocity.x = 2.5* speedy.x * directions.x
 	return new_velocity
 
 func PlayAnimations():
