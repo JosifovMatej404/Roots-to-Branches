@@ -13,7 +13,7 @@
 
 [node name="Background" type="ParallaxBackground"]
 __meta__ = {
-"_edit_horizontal_guides_": [ 0.371082 ],
+"_edit_horizontal_guides_": [ 0.371082, 277.603 ],
 "_edit_vertical_guides_": [ 1.14984, 480.545, 663.848, 902.879 ]
 }
 
