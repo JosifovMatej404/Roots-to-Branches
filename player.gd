@@ -117,6 +117,7 @@ func take_damage(dmg):
 		$Hitbox.set_deferred("monitorable",false)
 		$Hitbox.set_deferred("monitoring",false)
 		is_dead = true
+
 		
 
 func _on_Area2D_body_entered(body):
