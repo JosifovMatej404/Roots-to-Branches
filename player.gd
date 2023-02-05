@@ -99,8 +99,8 @@ func set_attacking_to_false():
 		return 
 	attacking = false
 	
-func take_damage():
-	$Camera2D/HUD/TextureProgress.value -= 10
+func take_damage(dmg):
+	$Camera2D/HUD/TextureProgress.value -= dmg
 	var effect = hit_particles_scn.instance()
 	effect.get_node(".").set_emitting(true)
 	get_tree().get_root().add_child(effect)
@@ -117,6 +117,7 @@ func take_damage():
 		$Hitbox.set_deferred("monitorable",false)
 		$Hitbox.set_deferred("monitoring",false)
 		is_dead = true
+
 		
 
 func _on_Area2D_body_entered(body):
@@ -126,5 +127,7 @@ func _on_Area2D_body_entered(body):
 
 func _on_Hitbox_body_entered(body):
 	print(body.name)
+	if "chest" in body.name:
+		take_damage(1000)
 	if "Node2D" in body.name:
-		take_damage()
+		take_damage(10)
