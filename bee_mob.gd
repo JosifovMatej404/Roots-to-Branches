@@ -4,8 +4,8 @@ const grav = 0
 const speed = Vector2(70,50)
 var velocity = Vector2.ZERO
 var Direction = Vector2.ZERO
-var startX = global_position.x
-var startY = global_position.y
+var startX
+var startY
 
 var left
 var right
@@ -17,6 +17,8 @@ const explosion_scn = preload("res://explosion.tscn")
 
 
 func _ready():
+	startX = global_position.x
+	startY = global_position.y
 	#health = ceil(Globals.Score / 100)
 	#$ProgressBar.max_value = health
 	$TextureProgress.value = health
