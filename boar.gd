@@ -32,15 +32,16 @@ func OnTakeDamage():
 	$TextureProgress.value -= 50
 	var effect = hit_particles_scn.instance()
 	effect.get_node(".").set_emitting(true)
+	get_tree().get_root().add_child(effect)
+	
 	effect.global_position.x = global_position.x
 	effect.global_position.y = global_position.y
-	get_tree().get_root().add_child(effect)
-
 	if health <= 0:
 		var explosion = explosion_scn.instance()
+		get_tree().get_root().add_child(explosion)
 		explosion.global_position.x = global_position.x
 		explosion.global_position.y = global_position.y
-		get_tree().get_root().add_child(explosion)
+
 		explosion.play("explode")
 		#Globals.Score += 15
 		queue_free()
