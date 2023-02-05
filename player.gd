@@ -80,7 +80,7 @@ func is_idle():
 
 func _attack():
 	for body in $Range.get_overlapping_bodies():
-		if body.name == "Node2D":
+		if  "Node2D" in body.name:
 			body.OnTakeDamage()
 
 func can_attack():

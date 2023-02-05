@@ -18,11 +18,11 @@ __meta__ = {
 }
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.9, 1 )
 motion_mirroring = Vector2( 902, 0 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxLayer"]
-visible = false
-position = Vector2( 0, -92.6058 )
+position = Vector2( -51.6067, 52.8998 )
 scale = Vector2( 1.881, 1.41731 )
 texture = ExtResource( 1 )
 centered = false

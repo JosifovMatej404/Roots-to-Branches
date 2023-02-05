@@ -39,7 +39,7 @@ func _calculate_move_velocity(
 	
 	for body in $Vision.get_overlapping_bodies():
 		if body.name == "KinematicBody2D":
-			new_velocity.x = 2.5 * speedy.x * directions.x
+			new_velocity.x = 2.5* speedy.x * directions.x
 	
 	return new_velocity
 

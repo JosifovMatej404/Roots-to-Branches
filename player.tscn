@@ -396,6 +396,7 @@ parameters/playback = SubResource( 34 )
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
 zoom = Vector2( 0.458, 0.438 )
+limit_left = -600
 limit_bottom = 557
 
 [node name="Area2D" type="Area2D" parent="."]
