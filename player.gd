@@ -127,13 +127,14 @@ func take_quest():
 	if position.x < -90:
 		$Camera2D/HUD/RichTextLabel.visible = true
 		if Input.is_action_pressed("interact"):
+			$Camera2D/HUD/RichTextLabel.text = "Kill 10 mobs: " + str(Globals.kills) + " of 10"
 			quest_taken = true
 		return
 	if !quest_taken:
 		$Camera2D/HUD/RichTextLabel.visible = false
 		return
 	else:
-		$Camera2D/HUD/RichTextLabel.text = "Kill 10 mobs: " + str(kills) + " of 10"
+		$Camera2D/HUD/RichTextLabel.text = "Kill 10 mobs: " + str(Globals.kills) + " of 10"
 
 func _on_Area2D_body_entered(body):
 	if body.name == "gameLevels":
