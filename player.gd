@@ -8,6 +8,10 @@ var state_machine
 var grav = 500
 var on_floor = false
 var attacking
+var is_dead = false
+
+const hit_particles_scn = preload("res://hit_particles.tscn")
+const explosion_scn = preload("res://explosion.tscn")
 
 
 func _ready():
@@ -46,10 +50,12 @@ func can_jump():
 	return false
 
 func _physics_process(delta):
-		direction = _get_direction()
-		velocity = _calculate_move_velocity(velocity, direction, speed)
-		_manage_animations()
-		move_and_slide(velocity, Vector2.UP)
+	if is_dead:
+		return
+	direction = _get_direction()
+	velocity = _calculate_move_velocity(velocity, direction, speed)
+	_manage_animations()
+	move_and_slide(velocity, Vector2.UP)
 
 func _manage_animations():
 	
@@ -70,7 +76,6 @@ func _manage_animations():
 
 	if is_idle():
 		state_machine.travel("idle")
-
 
 func can_run():
 	return _get_direction().x != 0 && on_floor
@@ -94,9 +99,32 @@ func set_attacking_to_false():
 		return 
 	attacking = false
 	
-
+func take_damage():
+	$Camera2D/HUD/TextureProgress.value -= 10
+	var effect = hit_particles_scn.instance()
+	effect.get_node(".").set_emitting(true)
+	get_tree().get_root().add_child(effect)
+	
+	effect.global_position.x = global_position.x
+	effect.global_position.y = global_position.y
+	if $Camera2D/HUD/TextureProgress.value <= 0:
+		var explosion = explosion_scn.instance()
+		get_tree().get_root().add_child(explosion)
+		explosion.global_position.x = global_position.x
+		explosion.global_position.y = global_position.y
+		explosion.play("explode")
+		$AnimatedSprite.visible = false
+		$Hitbox.set_deferred("monitorable",false)
+		$Hitbox.set_deferred("monitoring",false)
+		is_dead = true
 
 
 func _on_Area2D_body_entered(body):
 	if body.name == "gameLevels":
 		on_floor = true
+
+
+func _on_Hitbox_body_entered(body):
+	print(body.name)
+	if "Node2D" in body.name:
+		take_damage()

@@ -1,7 +1,8 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://animation.tres" type="SpriteFrames" id=1]
 [ext_resource path="res://player.gd" type="Script" id=2]
+[ext_resource path="res://HUD.tscn" type="PackedScene" id=3]
 
 [sub_resource type="CapsuleShape2D" id=1]
 height = 28.0818
@@ -365,6 +366,10 @@ extents = Vector2( 3.56017, 17.4464 )
 [sub_resource type="CapsuleShape2D" id=36]
 radius = 32.3221
 
+[sub_resource type="CapsuleShape2D" id=37]
+radius = 7.05379
+height = 31.0517
+
 [node name="player" type="KinematicBody2D"]
 collision_layer = 2
 script = ExtResource( 2 )
@@ -373,6 +378,7 @@ script = ExtResource( 2 )
 position = Vector2( 1, 0 )
 frames = ExtResource( 1 )
 animation = "idle"
+frame = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
@@ -399,6 +405,8 @@ zoom = Vector2( 0.458, 0.438 )
 limit_left = -600
 limit_bottom = 557
 
+[node name="HUD" parent="Camera2D" instance=ExtResource( 3 )]
+
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
@@ -412,4 +420,10 @@ position = Vector2( 11.2975, -7.87849 )
 position = Vector2( 5.98462, -4.09474 )
 shape = SubResource( 36 )
 
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource( 37 )
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="Hitbox" to="." method="_on_Hitbox_body_entered"]
