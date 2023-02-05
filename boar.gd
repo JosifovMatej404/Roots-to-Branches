@@ -10,6 +10,8 @@ var right
 var setDir = false
 var health = 100
 
+const hit_particles_scn = preload("res://hit_particles.tscn")
+
 func _ready():
 	#health = ceil(Globals.Score / 100)
 	#$ProgressBar.max_value = health
@@ -25,6 +27,13 @@ func _physics_process(delta):
 func OnTakeDamage():
 	health -= 50
 	$TextureProgress.value -= 50
+	var effect = hit_particles_scn.instance()
+	effect.get_node(".").set_emitting(true)
+	effect.global_position.x = global_position.x
+	effect.global_position.y = global_position.y
+	# = (Vector2(global_position.x, global_position.y))
+	get_tree().get_root().add_child(effect)
+	global_position.x
 	if health <= 0:
 		#Globals.Score += 15
 		queue_free()
