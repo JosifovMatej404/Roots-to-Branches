@@ -1,8 +1,9 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://animation.tres" type="SpriteFrames" id=1]
 [ext_resource path="res://player.gd" type="Script" id=2]
 [ext_resource path="res://HUD.tscn" type="PackedScene" id=3]
+[ext_resource path="res://male_hurt7-48124.mp3" type="AudioStream" id=4]
 
 [sub_resource type="CapsuleShape2D" id=1]
 height = 28.0818
@@ -378,7 +379,7 @@ script = ExtResource( 2 )
 position = Vector2( 1, 0 )
 frames = ExtResource( 1 )
 animation = "idle"
-frame = 2
+frame = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
@@ -424,6 +425,10 @@ shape = SubResource( 36 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 shape = SubResource( 37 )
+
+[node name="DamageSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
+attenuation = 3.24901
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="area_entered" from="Hitbox" to="." method="_on_Hitbox_body_entered"]

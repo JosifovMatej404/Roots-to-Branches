@@ -151,6 +151,8 @@ func _on_Area2D_body_entered(body):
 
 func _on_Hitbox_body_entered(body):
 	if "chest" in body.name:
+		$DamageSound.play()
 		take_damage(1000)
 	if "Node2D" in body.name:
+		$DamageSound.play()
 		take_damage(10)

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Roots to Branches (2006 Remaster).mp3-7c11d4191cadac1ac749478f306b8f9e.mp3str"
+
+[deps]
+
+source_file="res://Roots to Branches (2006 Remaster).mp3"
+dest_files=[ "res://.import/Roots to Branches (2006 Remaster).mp3-7c11d4191cadac1ac749478f306b8f9e.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
