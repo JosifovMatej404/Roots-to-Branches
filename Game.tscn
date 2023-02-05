@@ -19,7 +19,7 @@ texture = ExtResource( 4 )
 [node name="Background" parent="." instance=ExtResource( 1 )]
 
 [node name="player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 356, 314 )
+position = Vector2( -57.3634, 360.203 )
 
 [node name="Node2D" parent="." instance=ExtResource( 5 )]
 position = Vector2( 618.768, 386.793 )

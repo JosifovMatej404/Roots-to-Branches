@@ -9,6 +9,8 @@ var grav = 500
 var on_floor = false
 var attacking
 var is_dead = false
+var quest_taken = false
+var kills = 0
 
 const hit_particles_scn = preload("res://hit_particles.tscn")
 const explosion_scn = preload("res://explosion.tscn")
@@ -54,6 +56,7 @@ func _physics_process(delta):
 		return
 	direction = _get_direction()
 	velocity = _calculate_move_velocity(velocity, direction, speed)
+	take_quest()
 	_manage_animations()
 	move_and_slide(velocity, Vector2.UP)
 
@@ -119,6 +122,19 @@ func take_damage(dmg):
 		is_dead = true
 
 		
+
+func take_quest():
+	if position.x < -90:
+		$Camera2D/HUD/RichTextLabel.visible = true
+		if Input.is_action_pressed("interact"):
+			$Camera2D/HUD/RichTextLabel.text = "Kill 10 mobs: " + str(Globals.kills) + " of 10"
+			quest_taken = true
+		return
+	if !quest_taken:
+		$Camera2D/HUD/RichTextLabel.visible = false
+		return
+	else:
+		$Camera2D/HUD/RichTextLabel.text = "Kill 10 mobs: " + str(Globals.kills) + " of 10"
 
 func _on_Area2D_body_entered(body):
 	if body.name == "gameLevels":

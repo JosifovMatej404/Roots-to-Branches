@@ -44,6 +44,7 @@ func OnTakeDamage():
 
 		explosion.play("explode")
 		#Globals.Score += 15
+		Globals.kills += 1
 		queue_free()
 	
 func _calculate_move_velocity(
@@ -55,7 +56,7 @@ func _calculate_move_velocity(
 	new_velocity.y += grav * get_physics_process_delta_time()
 	
 	for body in $Vision.get_overlapping_bodies():
-		if body.name == "KinematicBody2D":
+		if body.name == "player":
 			isRaging = true
 	if isRaging:
 		new_velocity.x = 2.5* speedy.x * directions.x

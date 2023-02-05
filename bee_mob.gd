@@ -51,6 +51,7 @@ func OnTakeDamage():
 
 		explosion.play("explode")
 		#Globals.Score += 15
+		Globals.kills += 1
 		queue_free()
 	
 
