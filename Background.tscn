@@ -28,7 +28,7 @@ texture = ExtResource( 1 )
 centered = false
 
 [node name="Trees6" type="ParallaxLayer" parent="."]
-position = Vector2( 314.229, 168.015 )
+position = Vector2( 359.637, 185.674 )
 motion_scale = Vector2( 0.8, 1 )
 motion_mirroring = Vector2( 902, 0 )
 

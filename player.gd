@@ -124,9 +124,12 @@ func take_damage(dmg):
 		
 
 func take_quest():
+	$Camera2D/HUD/Level.text = "Level: " + str(Globals.level)
 	if position.x < -90:
 		$Camera2D/HUD/RichTextLabel.visible = true
 		if Input.is_action_pressed("interact"):
+			if Globals.kills >= 10 && Globals.level < 2:
+				Globals.level += 1
 			quest_taken = true
 		return
 	if !quest_taken:

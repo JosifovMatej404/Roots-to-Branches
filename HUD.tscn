@@ -26,6 +26,7 @@ margin_left = 57.0
 margin_top = 94.0
 margin_right = 391.0
 margin_bottom = 132.0
+rect_pivot_offset = Vector2( 91.0177, 80.1904 )
 custom_fonts/normal_font = SubResource( 1 )
 text = "Press X to get quest"
 __meta__ = {
@@ -52,3 +53,15 @@ position = Vector2( 509, 301 )
 scale = Vector2( 0.547917, 0.575926 )
 texture = ExtResource( 4 )
 script = ExtResource( 6 )
+
+[node name="Level" type="RichTextLabel" parent="."]
+margin_left = 1367.71
+margin_top = 45.5323
+margin_right = 1474.71
+margin_bottom = 72.5323
+rect_pivot_offset = Vector2( 91.0177, 80.1904 )
+custom_fonts/normal_font = SubResource( 1 )
+text = "Level 1"
+__meta__ = {
+"_edit_use_anchors_": false
+}
