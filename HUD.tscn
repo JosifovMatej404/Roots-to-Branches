@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://HealthBar/BackGround.png" type="Texture" id=1]
 [ext_resource path="res://HealthBar/HealthBar.png" type="Texture" id=2]
@@ -10,6 +10,7 @@ size = 25
 outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 4 )
+[ext_resource path="res://you_died.png" type="Texture" id=4]
 
 [node name="HUD" type="CanvasLayer"]
 
@@ -40,6 +41,9 @@ value = 90.0
 texture_under = ExtResource( 1 )
 texture_over = ExtResource( 3 )
 texture_progress = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+
+[node name="YouDied" type="Sprite" parent="."]
+visible = false
+position = Vector2( 509, 301 )
+scale = Vector2( 0.547917, 0.575926 )
+texture = ExtResource( 4 )

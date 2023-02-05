@@ -18,3 +18,7 @@ func _ready():
 
 func _on_AnimatedSprite_animation_finished():
 	queue_free()
+	var progress = get_node("/root/Game/player/Camera2D/HUD/TextureProgress")
+	if progress.value <= 0:
+		var youdied = get_node("/root/Game/player/Camera2D/HUD/YouDied")	
+		youdied.visible = true
